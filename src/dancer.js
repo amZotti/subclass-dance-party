@@ -10,7 +10,6 @@ window.Dancer = function(top, left, timeBetweenSteps){
 Dancer.prototype.step = function(){
   window.setTimeout(this.step.bind(this), this.timeBetweenSteps);
   step();
-  console.log('works');
 };
 
 Dancer.prototype.setPosition = function(top, left){
@@ -19,4 +18,9 @@ Dancer.prototype.setPosition = function(top, left){
     left: left
   };
   this.$node.css(styleSettings);
+};
+
+Dancer.prototype.step = function(){
+  setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  this.$node.toggle();
 };
