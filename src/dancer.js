@@ -1,4 +1,4 @@
-var Dancer = function(top, left, timeBetweenSteps){
+window.Dancer = function(top, left, timeBetweenSteps){
   this.$node = $('<span class="dancer"></span>');
   this.left = left;
   this.top = top;

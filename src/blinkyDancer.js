@@ -1,4 +1,4 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps){
+window.BlinkyDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   //this.oldStep = this.step;
   //this.oldStep = this.oldStep.bind(this);
