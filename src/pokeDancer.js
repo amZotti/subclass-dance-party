@@ -10,7 +10,7 @@ PokeDancer.prototype = Object.create(Dancer.prototype);
 PokeDancer.prototype.constructor = PokeDancer;
 
 PokeDancer.prototype.pokemon = function() {
-  return ['http://images6.fanpop.com/image/polls/1116000/1116583_1347464724406_full.png', 'http://th00.deviantart.net/fs70/PRE/i/2012/261/2/b/pokemon_conquest___vaporeon_by_kalas17-d5f4nup.png', 'http://assets22.pokemon.com/assets/cms2/img/pokedex/full/007.png', 'http://assets22.pokemon.com/assets/cms2/img/pokedex/full/010.png'];
+  return ['http://images6.fanpop.com/image/polls/1116000/1116583_1347464724406_full.png', 'http://3.bp.blogspot.com/-KWWIqhkdc04/T9iNoFuHX0I/AAAAAAAAO5w/LM-WMOb7lPY/s1600/146Moltres+pokemon+red+and+blue+legendary+fire+pokemon.png', 'http://guidesmedia.ign.com/guides/059687/images/blackwhite/pokemans_144.gif', 'http://guidesmedia.ign.com/guides/059687/images/blackwhite/pokemans_144.gif'];
 };
 
 PokeDancer.prototype.getRandomPokemon = function() {
