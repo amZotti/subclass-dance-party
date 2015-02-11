@@ -5,6 +5,12 @@ window.Dancer = function(top, left, timeBetweenSteps){
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
+  window.test = this;
+};
+
+Dancer.prototype.lineUp = function() {
+  var middleOfPage = $("body").width() / 2;
+  $(this.$node).animate({ "left": middleOfPage });
 };
 
 Dancer.prototype.step = function(){

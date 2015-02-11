@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function(){
   window.dancers = [];
 
@@ -7,26 +10,24 @@ $(document).ready(function(){
     }
   };
 
-  var lineup = function(middleOfPage) {
-    $(".dancer, .pokedancer, .krillian").animate({ "left": middleOfPage });
-  };
-
-  $(".lineup").on("click", function(event) {
-    var middleOfPage = $("body").width() / 2;
-    lineup(middleOfPage);
-  });
-
   var createDancer = function(fn) {
     var dancer = new fn(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    window.dancers.push(dancer.$node);
+    dancer.step();
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   };
 
-  $(".addDancerButton").on("click", function(event){
+  $(".lineup").click(function() {
+    for (var i = 0;i < window.dancers.length;i++) {
+      window.dancers[i].lineUp();
+    }
+  });
+
+  $(".addDancerButton").click(function() {
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
     var dancerMakerFunction = window[dancerMakerFunctionName];
     createDancer(dancerMakerFunction);
