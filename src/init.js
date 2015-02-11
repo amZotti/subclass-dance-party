@@ -1,11 +1,8 @@
-
-
-
 $(document).ready(function(){
   window.dancers = [];
 
-  window.createDancers = function() {
-    for (var i = 0;i < 50;i++) {
+  createDancers = function() {
+    for (var i = 0;i < 3;i++) {
       createDancer(window.PokeDancer);
     }
   };
@@ -20,7 +17,7 @@ $(document).ready(function(){
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
   };
-  
+
   var getRandomDancer = function() {
     return window.dancers[Math.floor(Math.random() * window.dancers.length)];
   };
@@ -33,7 +30,10 @@ $(document).ready(function(){
 
   var randomCoordinates = function() {
     var randomDancer = getRandomDancer();
-    return coordinates(randomDancer);
+    var coords = [];
+    coords[0] = Math.floor(Math.random() * $('body').width());
+    coords[1] = Math.floor(Math.random() * $('body').height());
+    return coords;
   };
 
   var specificCoordinates = function(dancer) {
@@ -41,7 +41,7 @@ $(document).ready(function(){
   };
 
   var chaseDancer = function(dancer, coords) {
-      $(dancer.$node).animate({ left: coords[0], top: coords[1] });
+    $(dancer.$node).animate({ left: coords[0], top: coords[1] });
     };
 
   $(".lineup").click(function() {
@@ -56,7 +56,6 @@ $(document).ready(function(){
     createDancer(dancerMakerFunction);
   });
 
-
   $(".random-chase").click(function() {
     var dancer = getRandomDancer();
     setInterval(function() {
@@ -68,10 +67,22 @@ $(document).ready(function(){
 
   $(".specific-chase").click(function() {
     var lead = window.dancers[0];
-    var coords = specificCoordinates(lead);
     setInterval(function() {
-      var dancer = getRandomDancer();
+      chaseLead(lead);
+      flyRandomly(lead);
+    }, 50);
+  });
+
+  var chaseLead = function(lead) {
+    var coords = specificCoordinates(lead);
+    window.dancers.forEach(function(dancer) {
       chaseDancer(dancer, coords);
     });
-  });
+  };
+
+  flyRandomly = function(lead) {
+    var coords = randomCoordinates();
+    chaseDancer(lead, coords);
+  };
+  createDancers();
 });

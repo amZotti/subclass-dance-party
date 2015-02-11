@@ -2,7 +2,6 @@ window.PokeDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   var pokemonURL = PokeDancer.prototype.getRandomPokemon();
   this.$node = $('<img class="pokedancer" src=' + pokemonURL + '></img>');
-  console.log(this);
   this.setPosition(top, left);
 };
 
